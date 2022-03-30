@@ -34,6 +34,9 @@ namespace HashTable
             Console.WriteLine(@"Frequency of ""paranoid"" - " + frequencyParanoid);
             Console.WriteLine(@"Frequency of ""are"" - " + frequencyAre);
             Console.WriteLine(@"Frequency of ""situation"" -  " + hashtable.Get("situation"));
+            hashtable.Remove("Avoidable".ToLower());
+            Console.WriteLine(@"Frequency of ""Avoidable"" - " + hashtable.Get("avoidable"));
+             
             Console.ReadKey();
         }
        

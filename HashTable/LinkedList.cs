@@ -43,5 +43,53 @@ namespace HashTable
                 tail = node;
             }
         }
+        public void DeleteNode(K data)
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Empty");
+            }
+            else
+            {
+
+                MyMapNode<K, V> node = Search(data);
+
+                if (node == null)
+                {
+                    Console.WriteLine("Not found");
+                }
+                else if (node == head)
+                {
+                    head = head.next;
+                    if (node == tail)
+                    {
+                        tail = null;
+                    }
+                }
+                else
+                {
+                    MyMapNode<K, V> nodeBefore = null;
+                    MyMapNode<K, V> temp = head;
+                    while (temp != null)
+                    {
+                        if (temp.next == node)
+                        {
+                            nodeBefore = temp;
+                            break;
+                        }
+                        temp = temp.next;
+                    }
+                    nodeBefore.next = node.next;
+                    if (node == tail)
+                    {
+                        tail = nodeBefore;
+                    }
+                    else
+                    {
+                        node.next = null;
+                    }
+                }
+            }
+        }
     }
 }
